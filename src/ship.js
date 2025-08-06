@@ -1,0 +1,7 @@
+export default class Ship {
+  constructor(aLength) {
+    this.length = aLength;
+    this.hits = 0;
+    this.sunk = false;
+  }
+}
