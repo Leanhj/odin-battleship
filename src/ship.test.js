@@ -26,3 +26,22 @@ test("multiple hits increase number of hits by more than one", () => {
   expect(ship.hits).toEqual(2);
   expect(ship.sunk).toBe(false);
 });
+
+test("intact ship is not sunk", () => {
+  const ship = new Ship(3);
+
+  expect(ship.length).toEqual(3);
+  expect(ship.hits).toEqual(0);
+  expect(ship.isSunk()).toBe(false);
+});
+
+test("ship number of hits is equal to length is sunk", () => {
+  const ship = new Ship(3);
+  ship.hit();
+  ship.hit();
+  ship.hit();
+
+  expect(ship.length).toEqual(3);
+  expect(ship.hits).toEqual(3);
+  expect(ship.isSunk()).toBe(true);
+});
